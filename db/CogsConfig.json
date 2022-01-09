@@ -1,0 +1,97 @@
+{"commands":[
+  {"name":"help",
+  "description": "displays this message",
+  "disabled":false,
+  "Type": "general",
+  "syntax": "!help {command}"},
+
+  {"name":"ping",
+  "description": "displays latency",
+  "disabled": false,
+  "Type":"general",
+  "syntax":"!ping"},
+
+  {"name":"origin",
+  "description": "displays origins powers",
+  "disabled":false,
+  "Type":"general",
+  "syntax": "!origin {origin}"},
+
+  {"name":"credits",
+  "description": "displays the credits for this bot",
+  "disabled":false,
+  "Type":"general",
+  "syntax": "!credits"},
+
+  {"name":"faq",
+  "description": "displays the faq",
+  "disabled":true,
+  "Type":"general",
+  "syntax":"!faq"},
+
+  {"name":"soft-mute",
+  "description":"prevents a member from speaking but doesnt kick them from a voice channel",
+  "disabled": true,
+  "Type": "moderation",
+  "syntax": "!soft-mute {user} {time (s/h/d/w)} {reason}"},
+
+  {"name": "hard-mute",
+  "description": "prevents a member from speaking and kicks them from voice channels (functions like the timeout feature)",
+  "disabled":true,
+  "Type": "moderation",
+  "syntax": "!hard-mute {user} {time (s/m/h/d/w)} {reason}"},
+
+  {"name":"kick",
+  "description": "kicks a member",
+  "disabled": true,
+  "Type":"moderation",
+  "syntax": "!kick {member} {reason}"},
+
+  {"name": "ban",
+  "description": "bans a member",
+  "disabled":true,
+  "Type":"moderation",
+  "syntax": "!ban {user} {reason}"},
+
+  {"name": "unban",
+  "description": "unbans a user",
+  "disabled": true,
+  "Type":"moderation",
+  "syntax":"!unban {userID}"},
+
+  {"name": "report-bug",
+  "description":"report a bug about the bot or addon",
+  "disabled":false,
+  "Type": "general",
+  "syntax":"!report_bug {bug}"},
+
+  {"name":"view-bugs",
+  "description":"view all active bugs",
+  "disabled":false,
+  "Type": "general",
+  "syntax":"!view-bugs"},
+
+  {"name":"dismiss_bug",
+  "description":"removes a bug from the database",
+  "disabled":true,
+  "Type":"moderation",
+  "syntax":"!dismiss-bug {bug id/name}"},
+
+  {"name":"server-ban",
+  "description":"give a user the server banned role",
+  "disabled":true,
+  "Type":"moderation",
+  "syntax":"!server-ban {user} {reason}"},
+
+  {"name":"set-mute",
+  "description":"sets the mute role id",
+  "disabled":true,
+  "Type":"setup",
+  "syntax": "!set-mute {role id}"},
+
+  {"name":"moderator",
+  "description":"manage moderators of the bot",
+  "disabled":true,
+  "Type": "setup",
+  "syntax": "!moderator {add/remove/list} {role id/mention (if adding or removing)}"}
+]}
