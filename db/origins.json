@@ -185,7 +185,7 @@
     "icon":"./db/res/origin_icons/enderian.png",
     "color": "purple"
   },
-  "merling"; {
+  "merling": {
     "name": "Merling",
     "impact": "high",
     "description": "These natural inhabitants of the ocean are not used to being out of the water for too long.",
