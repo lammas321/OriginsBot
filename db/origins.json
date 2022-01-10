@@ -1,274 +1,275 @@
-{"origins": [{
-    "name": "human",
+{
+  "human": {
+    "name": "Human",
     "impact": "none",
     "description": "A regular human. Your ordinary Minecraft experience awaits.",
-    "powers": [],
+    "powers": {},
     "icon": "./db/res/origin_icons/human.png",
     "color": "grey"
-    },
-    {
-    "name": "avian",
+  },
+  "avian": {
+    "name": "Avian",
     "impact": "low",
     "description": "The Avian race has lost their ability to fly a long time ago. Now these peaceful creatures can be seen gliding from one place to another.",
-    "powers": [
-      {
+    "powers": {
+      "featherweight": {
         "name": "Featherweight",
         "description": "You fall as gently to the ground as a feather would, unless you sneak."
       },
-      {
+      "fresh_air": {
         "name": "Fresh Air",
         "description": "When sleeping, your bed needs to be at an altitude of at least 86 blocks, so you can breathe fresh air."
       },
-      {
+      "tailwind": {
         "name": "Tailwind",
         "description": "You are a little bit quicker on foot than others."
       },
-      {
+      "oviparous": {
         "name": "Oviparous",
         "description": "Whenever you wake up in the morning, you will lay an egg."
       },
-      {
+      "vegetarian": {
         "name": "Vegetarian",
         "description": "You can't digest any meat."
       }
-    ],
+    },
     "icon":"./db/res/origin_icons/avian.png",
     "color": "white"
   },
-  {
-    "name": "arachnid",
+  "arachnid": {
+    "name": "Arachnid",
     "impact": "low",
     "description": "Their climbing abilities and the ability to trap their foes in spiderweb make the Arachnid perfect hunters.",
-    "powers": [
-      {
+    "powers": {
+      "climbing": {
         "name": "Climbing",
         "description": "You are able to climb up any kind of wall, not just ladders, by jumping continuously on touch screen, or holding jump otherwise to ascend, touching a wall to descend, and sneaking to cling to the wall. This is toggleable by jumping while sneaking."
       },
-      {
+      "webbing": {
         "name": "Webbing",
         "description": "When you hit an enemy with your Primary Power item, they get stuck in cobweb and you have to wait a short cooldown before using it again."
       },
-      {
+      "spider_sense": {
         "name": "Spider Sense",
         "description": "You can see clearer in dark places when not in water."
       },
-      {
+      "carnivore": {
         "name": "Carnivore",
         "description": "Your diet is restricted to meat, you can't eat vegetables."
       },
-      {
+      "fragile": {
         "name": "Fragile",
         "description": "You have 3 less hearts of health than humans."
       }
-    ],
+    },
     "icon":"./db/res/origin_icons/arachnid.png",
     "color":"black"
   },
-  {
-    "name": "elytrian",
+  "elytrian": {
+    "name": "Elytrian",
     "impact": "low",
     "description": "Often flying around in the winds, Elytrians are uncomfortable when they don't have enough space above their head.",
-    "powers": [
-      {
+    "powers": {
+      "winged": {
         "name": "Winged",
         "description": "You have Elytra wings without needing to equip any."
       },
-      {
+      "gift_of_the_winds": {
         "name": "Gift of the Winds",
         "description": "Every 30 seconds, you are able to launch about 20 blocks up into the air by using your Primary Power item."
       },
-      {
+      "aerial_combatant": {
         "name": "Aerial Combatant",
         "description": "You deal substantially more damage while in Elytra flight."
       },
-      {
+      "need_for_mobility": {
         "name": "Need For Mobility",
         "description": "You can not wear any heavy armor (armor with protection values higher than iron)."
       },
-      {
+      "claustrophobia": {
         "name": "Claustrophobia",
         "description": "Being somewhere with a low ceiling for too long will weaken you and make you slower."
       },
-      {
+      "brittle_bones": {
         "name": "Brittle Bones",
         "description": "You take more damage from falling and flying into blocks."
       }
-    ],
+    },
     "icon":"./db/res/origin_icons/elytrian.png",
     "color":"grey"
   },
-  {
-    "name": "shulk",
+  "shulk": {
+    "name": "Shulk",
     "impact": "low",
     "description": "Related to Shulkers, the bodies of the Shulk are outfitted with a protective shell-like skin.",
-    "powers": [
-      {
+    "powers": {
+      "hoarder": {
         "name": "Hoarder",
         "description": "You have access to an additional 9 slots of inventory, which keep the items on death. This inventory can be accessed by looking straight down and interacting with the ground right below you, as if you were opening a chest minecart, while sneaking."
       },
-      {
+      "sturdy_skin": {
         "name": "Sturdy Skin",
         "description": "Even without wearing armor, your skin provides natural protection."
       },
-      {
+      "strong_arms": {
         "name": "Strong Arms",
         "description": "You mine faster due to your stronger arms."
       },
-      {
+      "unwieldy": {
         "name": "Unwieldy",
         "description": "The way your hands are formed provide no way of holding a shield upright."
       },
-      {
+      "large_appetite": {
         "name": "Large Appetite",
         "description": "You exhaust much quicker than others, thus requiring you to eat more."
       }
-    ],
+    },
     "icon":"./db/res/origin_icons/shulk.png",
     "color":"dark_purple"
   },
-  {
-    "name": "feline",
+  "feline": {
+    "name": "Feline",
     "impact": "medium",
     "description": "With their cat-like appearance, the Feline scares creepers away. With the dexterity of cats, they always land safely on their feet.",
-    "powers": [
-      {
+    "powers": {
+      "acrobatics": {
         "name": "Acrobatics",
         "description": "You never take fall damage, no matter from which height you fall."
       },
-      {
+      "strong_ankles": {
         "name": "Strong Ankles",
         "description": "You are able to jump higher by jumping while sprinting."
       },
-      {
+      "nine_lives": {
         "name": "Nine Lives",
         "description": "You have 1 less heart of health than humans."
       },
-      {
+      "weak_arms": {
         "name": "Weak Arms",
         "description": "You mine slower due to your weaker arms."
       },
-      {
+      "catlike_appearance": {
         "name": "Catlike Appearance",
         "description": "Creepers and phantoms are scared of you, and creepers will only explode if you attack them first."
       },
-      {
+      "nocturnal": {
         "name": "Nocturnal",
         "description": "You can see clearer in the dark when not in water."
       }
-    ],
+    },
     "icon":"./db/res/origin_icons/feline.png",
     "color":"orange"
   },
-  {
-    "name": "enderian",
+  "enderian": {
+    "name": "Enderian",
     "impact": "medium",
     "description": "Born as sons and daughters of the Ender Dragon, Enderians are capable of teleporting but are vulnerable to water.",
-    "powers": [
-      {
+    "powers": {
+      "teleportation": {
         "name": "Teleportation",
         "description": "Whenever you want, you may throw an ender pearl which deals no damage by using your Primary Power item, allowing you to teleport."
       },
-      {
+      "tough_skin": {
         "name": "Tough Skin",
         "description": "You have 2 more hearts of health than humans."
       },
-      {
+      "hydrophobia": {
         "name": "Hydrophobia",
         "description": "You receive damage over time while in contact with water."
       },
-      {
+      "slender_body": {
         "name": "Slender Body",
         "description": "You are half a block taller than others due to your slender body, and a little bit quicker on foot than others due to your long legs, but you can fit in 2 block tall spaces by sneaking."
       }
-    ],
+    },
     "icon":"./db/res/origin_icons/enderian.png",
     "color": "purple"
   },
-  {
-    "name": "merling",
+  "merling"; {
+    "name": "Merling",
     "impact": "high",
     "description": "These natural inhabitants of the ocean are not used to being out of the water for too long.",
-    "powers": [
-      {
+    "powers": {
+      "gills": {
         "name": "Gills",
         "description": "You can breathe underwater, but not on land."
       },
-      {
+      "wet_eyes": {
         "name": "Wet Eyes",
         "description": "Your vision underwater is perfect."
       },
-      {
+      "aqua_affinity": {
         "name": "Aqua Affinity",
         "description": "You may break blocks underwater as others do on land."
       },
-      {
+      "fins": {
         "name": "Fins",
         "description": "Your underwater speed is increased."
       }
-    ],
+    },
     "icon":"./db/res/origin_icons/merling.png",
     "color":"blue"
   },
-  {
-    "name": "blazeborn",
+  "blazeborn": {
+    "name": "Blazeborn",
     "impact": "high",
     "description": "Late descendants of the Blaze, the Blazeborn are naturally immune to the perils of the Nether.",
-    "powers": [
-      {
+    "powers": {
+      "fire_immunity": {
         "name": "Fire Immunity",
         "description": "You are immune to all types of fire damage."
       },
-      {
+      "nether_ihhabitant": {
         "name": "Nether Inhabitant",
         "description": "Your natural spawn will be in the Nether."
       },
-      {
+      "burning_wrath": {
         "name": "Burning Wrath",
         "description": "When on fire, you deal additional damage with your attacks."
       },
-      {
-        "name": "Hotblooded",
+      "hotblooded": {
+        "name": "hotblooded",
         "description": "Due to your hot body, venoms burn up, making you immune to poison and hunger status effects."
       },
-      {
+      "hydrophobia": {
         "name": "Hydrophobia",
         "description": "You receive damage over time while in contact with water."
       }
-    ],
+    },
     "icon":"./db/res/origin_icons/blazeborn.png",
     "color":"orange"
   },
-  {
-    "name": "phantom",
+  "phantom": {
+    "name": "Phantom",
     "impact": "high",
     "description": "As half-human and half-phantom offspring, these creatures can switch between a Phantom and a normal form.",
-    "powers": [
-      {
+    "powers": {
+      "phantom_form": {
         "name": "Phantom Form",
         "description": "You can switch between human and phantom form at will by using your Primary Power item. Sneak to get the Primary Power item back after using it."
       },
-      {
+      "phasing": {
         "name": "Phasing",
         "description": "While phantomized, you can phase through solid material, except Obsidian, by punching with your Primary Power item, and you can sneak while in a wall to see through walls. Fancy Graphics must be turned on to see through walls."
       },
-      {
+      "invisibility": {
         "name": "Invisibility",
         "description": "While phantomized, you are invisible."
       },
-      {
+      "photoallergic": {
         "name": "Photoallergic",
         "description": "You begin to burn in daylight if you are not invisible."
       },
-      {
+      "fast_metabolism": {
         "name": "Fast Metabolism",
         "description": "Being phantomized causes you to become hungry."
       },
-      {
+      "fragile": {
         "name": "Fragile",
         "description": "You have 3 less hearts of health than humans."
       }
-    ],
+    },
     "icon":"./db/res/origin_icons/phantom.png",
     "color":"white"
   }
-]}
+}
