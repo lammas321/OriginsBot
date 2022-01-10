@@ -21,7 +21,7 @@ colors = {
   "blue": discord.Color.blue(),
   "grey": discord.Color.greyple(),
   "orange": discord.Color.orange(),
-  "white": 0xeeffee,
+  "white": 0xfefefe,
   "blue": discord.Color.blue(),
   "dark_grey": discord.Color.dark_grey(),
   "dark_orange": discord.Color.dark_orange(),
