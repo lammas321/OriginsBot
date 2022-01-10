@@ -42,21 +42,18 @@ class origins_infoCog(commands.Cog):
       with open(self.db+"origins.json", "r") as origins:
         origins = js.load(origins)
       
-      found = False
-
-      for Origin in origins["origins"]:
-        if Origin["name"] == origin.lower():
-          found = True
-          emb = discord.Embed(title=origin.capitalize(), description=Origin["description"], color=get_color(Origin, colors))
-          origin_icon = discord.File(Origin["icon"], filename="originicon.png")
-          emb.set_thumbnail(url="attachment://originicon.png")
-
-          for power in Origin["powers"]:
-            emb.add_field(name=power["name"], value=power["description"], inline=True)
-          
-          await ctx.send(file=origin_icon, embed=emb)
+      if origin.lower() in origins.keys():
+        origin = origins[origin.lower()]
+        emb = discord.Embed(title=origin["name"], description=origin["description"], color=get_color(origin, colors))
         
-      if found == False:
+        origin_icon = discord.File(origin["icon"], filename="originicon.png")
+        emb.set_thumbnail(url="attachment://originicon.png")
+
+        for power in origin["powers"]:
+          emb.add_field(name=power["name"], value=power["description"], inline=True)
+        
+        await ctx.send(file=origin_icon, embed=emb)
+      else:
         raise OriginNotFound
 
     except FileNotFoundError:
