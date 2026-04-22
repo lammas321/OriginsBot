@@ -453,7 +453,7 @@ namespace OriginsBot.Commands
                 };
 
 
-            if (!OriginDataService.TryAddCreator(creatorId, jsonCreator))
+            if (!OriginDataService.TryAddCreator(creatorId, jsonCreator, out Exception? ex))
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -463,7 +463,7 @@ namespace OriginsBot.Commands
                 return;
             }
 
-            if (OriginDataService.Data.InvalidCreatorIds.TryGetValue(creatorId, out Exception? ex))
+            if (ex != null)
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -510,7 +510,7 @@ namespace OriginsBot.Commands
             }
 
 
-            if (!OriginDataService.TryMoveCreator(oldCreatorId, newCreatorId))
+            if (!OriginDataService.TryMoveCreator(oldCreatorId, newCreatorId, out Exception? ex))
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -520,7 +520,7 @@ namespace OriginsBot.Commands
                 return;
             }
 
-            if (OriginDataService.Data.InvalidCreatorIds.TryGetValue(newCreatorId, out Exception? ex))
+            if (ex != null)
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -590,7 +590,7 @@ namespace OriginsBot.Commands
             }
 
 
-            if (!OriginDataService.TryUpdateCreator(creatorId, jsonCreator))
+            if (!OriginDataService.TryUpdateCreator(creatorId, jsonCreator, out Exception? ex))
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -600,7 +600,7 @@ namespace OriginsBot.Commands
                 return;
             }
 
-            if (OriginDataService.Data.InvalidCreatorIds.TryGetValue(creatorId, out Exception? ex))
+            if (ex != null)
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -633,7 +633,7 @@ namespace OriginsBot.Commands
             }
 
 
-            if (!OriginDataService.TryRemoveCreator(creatorId))
+            if (!OriginDataService.TryRemoveCreator(creatorId, out Exception? ex))
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -643,7 +643,7 @@ namespace OriginsBot.Commands
                 return;
             }
 
-            if (OriginDataService.Data.InvalidCreatorIds.TryGetValue(creatorId, out Exception? ex))
+            if (ex != null)
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -743,7 +743,7 @@ namespace OriginsBot.Commands
                 fullLang = string.Empty;
 
 
-            if (!OriginDataService.TryAddPack(packId, jsonPack, fullLang))
+            if (!OriginDataService.TryAddPack(packId, jsonPack, fullLang, out Exception? ex))
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -753,7 +753,7 @@ namespace OriginsBot.Commands
                 return;
             }
 
-            if (OriginDataService.Data.InvalidPackIds.TryGetValue(packId, out Exception? ex))
+            if (ex != null)
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -833,7 +833,7 @@ namespace OriginsBot.Commands
             }
 
 
-            if (!OriginDataService.TryMovePack(oldPackId, newPackId))
+            if (!OriginDataService.TryMovePack(oldPackId, newPackId, out Exception? ex))
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -843,7 +843,7 @@ namespace OriginsBot.Commands
                 return;
             }
 
-            if (OriginDataService.Data.InvalidPackIds.TryGetValue(newPackId, out Exception? ex))
+            if (ex != null)
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -936,7 +936,7 @@ namespace OriginsBot.Commands
             }
 
 
-            if (!OriginDataService.TryUpdatePack(packId, jsonPack, fullLang))
+            if (!OriginDataService.TryUpdatePack(packId, jsonPack, fullLang, out Exception? ex))
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -946,7 +946,7 @@ namespace OriginsBot.Commands
                 return;
             }
 
-            if (OriginDataService.Data.InvalidPackIds.TryGetValue(packId, out Exception? ex))
+            if (ex != null)
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -1002,7 +1002,7 @@ namespace OriginsBot.Commands
             }
 
 
-            if (!OriginDataService.TryRemovePack(packId))
+            if (!OriginDataService.TryRemovePack(packId, out Exception? ex))
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
@@ -1012,7 +1012,7 @@ namespace OriginsBot.Commands
                 return;
             }
 
-            if (OriginDataService.Data.InvalidPackIds.TryGetValue(packId, out Exception? ex))
+            if (ex != null)
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {

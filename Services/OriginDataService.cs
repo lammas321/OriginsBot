@@ -307,8 +307,10 @@ namespace OriginsBot.Services
         }
 
         
-        public static bool TryAddCreator(ulong creatorId, JsonCreator jsonCreator)
+        public static bool TryAddCreator(ulong creatorId, JsonCreator jsonCreator, out Exception? creatorException)
         {
+            creatorException = null;
+
             string creatorDirectory = Path.Combine(CreatorsDirectory, creatorId.ToString());
             Directory.CreateDirectory(creatorDirectory);
 
@@ -322,14 +324,22 @@ namespace OriginsBot.Services
             if (!success)
                 return false;
 
-            if (Data.InvalidCreatorIds.ContainsKey(creatorId) && Directory.Exists(creatorDirectory))
-                Directory.Delete(creatorDirectory, recursive: true);
+            if (Data.InvalidCreatorIds.TryGetValue(creatorId, out creatorException))
+            {
+                if (Directory.Exists(creatorDirectory))
+                    Directory.Delete(creatorDirectory, recursive: true);
+
+                if (!TryReload(out _))
+                    return false;
+            }
 
             return true;
         }
 
-        public static bool TryMoveCreator(ulong oldCreatorId, ulong newCreatorId)
+        public static bool TryMoveCreator(ulong oldCreatorId, ulong newCreatorId, out Exception? creatorException)
         {
+            creatorException = null;
+
             DateTime oldTime = BackupCreator(oldCreatorId);
             DateTime newTime = BackupCreator(newCreatorId);
             
@@ -345,19 +355,24 @@ namespace OriginsBot.Services
             if (!success)
                 return false;
 
-            if (Data.InvalidCreatorIds.ContainsKey(newCreatorId))
+            if (Data.InvalidCreatorIds.TryGetValue(newCreatorId, out creatorException))
             {
                 RestoreCreator(oldCreatorId, oldTime);
                 if (Directory.Exists(newCreatorDirectory))
                     Directory.Delete(newCreatorDirectory, recursive: true);
                 RestoreCreator(newCreatorId, newTime);
+
+                if (!TryReload(out _))
+                    return false;
             }
 
             return true;
         }
 
-        public static bool TryUpdateCreator(ulong creatorId, JsonCreator jsonCreator)
+        public static bool TryUpdateCreator(ulong creatorId, JsonCreator jsonCreator, out Exception? creatorException)
         {
+            creatorException = null;
+
             DateTime time = BackupCreator(creatorId);
 
             string creatorJsonFile = Path.Combine(CreatorsDirectory, creatorId.ToString(), CreatorJsonFileName);
@@ -370,14 +385,21 @@ namespace OriginsBot.Services
             if (!success)
                 return false;
 
-            if (Data.InvalidCreatorIds.ContainsKey(creatorId))
+            if (Data.InvalidCreatorIds.TryGetValue(creatorId, out creatorException))
+            {
                 RestoreCreator(creatorId, time);
+
+                if (!TryReload(out _))
+                    return false;
+            }
 
             return true;
         }
 
-        public static bool TryRemoveCreator(ulong creatorId)
+        public static bool TryRemoveCreator(ulong creatorId, out Exception? creatorException)
         {
+            creatorException = null;
+
             DateTime time = BackupCreator(creatorId);
 
             string creatorDirectory = Path.Combine(CreatorsDirectory, creatorId.ToString());
@@ -388,15 +410,22 @@ namespace OriginsBot.Services
             if (!success)
                 return false;
 
-            if (Data.InvalidCreatorIds.ContainsKey(creatorId))
+            if (Data.InvalidCreatorIds.TryGetValue(creatorId, out creatorException))
+            {
                 RestoreCreator(creatorId, time);
+
+                if (!TryReload(out _))
+                    return false;
+            }
 
             return true;
         }
 
 
-        public static bool TryAddPack(PackId packId, JsonPack jsonPack, string fullLang)
+        public static bool TryAddPack(PackId packId, JsonPack jsonPack, string fullLang, out Exception? packException)
         {
+            packException = null;
+
             string packDirectory = Path.Combine(PacksDirectory, packId.Value);
             Directory.CreateDirectory(Path.Combine(packDirectory, PackIconsDirectoryName));
 
@@ -413,14 +442,22 @@ namespace OriginsBot.Services
             if (!success)
                 return false;
 
-            if (Data.InvalidPackIds.ContainsKey(packId) && Directory.Exists(packDirectory))
-                Directory.Delete(packDirectory, recursive: true);
+            if (Data.InvalidPackIds.TryGetValue(packId, out packException))
+            {
+                if (Directory.Exists(packDirectory))
+                    Directory.Delete(packDirectory, recursive: true);
+
+                if (!TryReload(out _))
+                    return false;
+            }
             
             return true;
         }
         
-        public static bool TryMovePack(PackId oldPackId, PackId newPackId)
+        public static bool TryMovePack(PackId oldPackId, PackId newPackId, out Exception? packException)
         {
+            packException = null;
+
             DateTime oldTime = BackupPack(oldPackId);
             DateTime newTime = BackupPack(newPackId);
 
@@ -436,19 +473,24 @@ namespace OriginsBot.Services
             if (!success)
                 return false;
 
-            if (Data.InvalidPackIds.ContainsKey(newPackId))
+            if (Data.InvalidPackIds.TryGetValue(newPackId, out packException))
             {
                 RestorePack(oldPackId, oldTime);
                 if (Directory.Exists(newPackDirectory))
                     Directory.Delete(newPackDirectory, recursive: true);
                 RestorePack(newPackId, newTime);
+
+                if (!TryReload(out _))
+                    return false;
             }
 
             return true;
         }
         
-        public static bool TryUpdatePack(PackId packId, JsonPack? jsonPack, string? fullLang)
+        public static bool TryUpdatePack(PackId packId, JsonPack? jsonPack, string? fullLang, out Exception? packException)
         {
+            packException = null;
+
             string packDirectory = Path.Combine(PacksDirectory, packId.Value);
             Directory.CreateDirectory(Path.Combine(packDirectory, PackIconsDirectoryName));
 
@@ -469,14 +511,22 @@ namespace OriginsBot.Services
             if (!success)
                 return false;
 
-            if (Data.InvalidPackIds.ContainsKey(packId) && Directory.Exists(packDirectory))
-                Directory.Delete(packDirectory, recursive: true);
+            if (Data.InvalidPackIds.TryGetValue(packId, out packException))
+            {
+                if (Directory.Exists(packDirectory))
+                    Directory.Delete(packDirectory, recursive: true);
+
+                if (!TryReload(out _))
+                    return false;
+            }
 
             return true;
         }
 
-        public static bool TryRemovePack(PackId packId)
+        public static bool TryRemovePack(PackId packId, out Exception? packException)
         {
+            packException = null;
+
             DateTime time = BackupPack(packId);
 
             string packDirectory = Path.Combine(PacksDirectory, packId.Value);
@@ -487,8 +537,13 @@ namespace OriginsBot.Services
             if (!success)
                 return false;
 
-            if (Data.InvalidPackIds.ContainsKey(packId))
+            if (Data.InvalidPackIds.TryGetValue(packId, out packException))
+            {
                 RestorePack(packId, time);
+
+                if (!TryReload(out _))
+                    return false;
+            }
 
             return true;
         }
