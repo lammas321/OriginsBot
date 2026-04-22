@@ -1016,7 +1016,7 @@ namespace OriginsBot.Commands
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
-                    Content = $"Failed to remove the registered origin pack '{packId}':```\n{ex.Message}```",
+                    Content = $"Failed to remove the registered origin pack '{packId.Value}':```\n{ex.Message}```",
                     Flags = MessageFlags.Ephemeral,
                 }));
                 return;
@@ -1024,7 +1024,7 @@ namespace OriginsBot.Commands
 
             await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
             {
-                Content = $"Removed the registered origin pack '{packId}'.",
+                Content = $"Removed the registered origin pack '{packId.Value}'.",
                 Flags = MessageFlags.Ephemeral,
             }));
         }

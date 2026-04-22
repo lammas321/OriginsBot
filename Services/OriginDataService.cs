@@ -424,11 +424,11 @@ namespace OriginsBot.Services
             DateTime oldTime = BackupPack(oldPackId);
             DateTime newTime = BackupPack(newPackId);
 
-            string newPackDirectory = Path.Combine(PacksDirectory, newPackId.ToString());
+            string newPackDirectory = Path.Combine(PacksDirectory, newPackId.Value);
             if (Directory.Exists(newPackDirectory))
                 Directory.Delete(newPackDirectory, recursive: true);
 
-            string oldPackDirectory = Path.Combine(PacksDirectory, oldPackId.ToString());
+            string oldPackDirectory = Path.Combine(PacksDirectory, oldPackId.Value);
             if (Directory.Exists(oldPackDirectory))
                 Directory.Move(oldPackDirectory, newPackDirectory);
 
