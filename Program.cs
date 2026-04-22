@@ -4,8 +4,6 @@ using NetCord.Logging;
 using OriginsBot.Modules;
 using OriginsBot.Services;
 
-// TODO: Setting creator/pack order (admin)
-
 AppDomain.CurrentDomain.UnhandledException += async (sender, e) =>
 {
     Console.WriteLine($"FATAL Error! Unhandled Exception:\n{e.ExceptionObject}");

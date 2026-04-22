@@ -23,6 +23,7 @@ namespace OriginsBot.Modules
         private HashSet<ulong> _guildCommandIds = [];
 
         private readonly ComponentInteractionService<ButtonInteractionContext> _buttonInteractionService;
+        private readonly ComponentInteractionService<ModalInteractionContext> _modalInteractionService;
 
 
         public CommandModule(GatewayClient client)
@@ -39,6 +40,9 @@ namespace OriginsBot.Modules
             _buttonInteractionService.AddModule<CreatorsPagination>();
             _buttonInteractionService.AddModule<PacksPagination>();
             _buttonInteractionService.AddModule<OriginsPagination>();
+
+            _modalInteractionService = new();
+            _modalInteractionService.AddModule<ReorderModal>();
 
 
             client.InteractionCreate += async interaction =>
@@ -101,6 +105,19 @@ namespace OriginsBot.Modules
                                 return;
 
                             Console.Error.WriteLine($"Button interact failed: {failResult.Message}");
+
+                            return;
+                        }
+                    case ModalInteraction modalInteraction:
+                        {
+                            ModalInteractionContext context = new(modalInteraction, client);
+
+                            var result = await _modalInteractionService.ExecuteAsync(context);
+
+                            if (result is not IFailResult failResult)
+                                return;
+
+                            Console.Error.WriteLine($"Modal interact failed: {failResult.Message}");
 
                             return;
                         }

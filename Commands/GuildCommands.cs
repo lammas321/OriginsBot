@@ -1082,7 +1082,37 @@ namespace OriginsBot.Commands
         }
 
 
-        [SlashCommand("reload_data", "Forces a data reload from disk.", DefaultGuildPermissions = Permissions.Administrator)]
+        [SlashCommand("reorder", "Admins Only: Reorder creators and packs.")]
+        public async Task Reorder()
+        {
+            string orderedCreators = string.Join('\n', File.ReadAllLines(OriginDataService.OrderedCreatorsFile));
+            string orderedPacks = string.Join('\n', File.ReadAllLines(OriginDataService.OrderedPacksFile));
+
+            await Context.Interaction.SendResponseAsync(InteractionCallback.Modal(new("reorder_modal", "Reorder Creators and Packs")
+            {
+                new LabelProperties(
+                    "Creators:",
+                    new TextInputProperties("creators", TextInputStyle.Paragraph)
+                    {
+                        Value = orderedCreators,
+                        Placeholder = orderedCreators,
+                        Required = true,
+                    }
+                ),
+                new LabelProperties(
+                    "Packs:",
+                    new TextInputProperties("packs", TextInputStyle.Paragraph)
+                    {
+                        Value = orderedPacks,
+                        Placeholder = orderedPacks,
+                        Required = true,
+                    }
+                ),
+            }));
+        }
+
+
+        [SlashCommand("reload_data", "Admins Only: Forces a data reload from disk.", DefaultGuildPermissions = Permissions.Administrator)]
         public async Task ReloadData()
         {
             if (!OriginDataService.TryReload(out Exception? exception))
