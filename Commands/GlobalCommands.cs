@@ -145,7 +145,7 @@ namespace OriginsBot.Commands
                 new EmbedFieldProperties
                 {
                     Name = pack.CreatorIds.Count == 1 ? "Creator" : "Creators",
-                    Value = string.Join(", ", pack.OrderedCreatorIds.Select(creatorId => OriginDataService.Data.UniqueCreatorNames[creatorId])),
+                    Value = string.Join(", ", pack.OrderedCreatorIds.Select(creatorId => OriginDataService.Data.UniqueCreatorNames.TryGetValue(creatorId, out string? uniqueName) ? uniqueName : $"<@{creatorId}>")),
                     Inline = false,
                 }
             );

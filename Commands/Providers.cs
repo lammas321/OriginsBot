@@ -67,7 +67,7 @@ namespace OriginsBot.Commands
         }
 
         private static ApplicationCommandOptionChoiceProperties AsChoice(ulong creatorId)
-            => new(OriginDataService.Data.UniqueCreatorNames.TryGetValue(creatorId, out string? name) ? name : creatorId.ToString(), creatorId.ToString());
+            => new(OriginDataService.Data.UniqueCreatorNames.TryGetValue(creatorId, out string? name) ? name : $"<@{creatorId}>", creatorId.ToString());
     }
 
     public sealed class AccessiblePackProvider : IAutocompleteProvider<AutocompleteInteractionContext>
