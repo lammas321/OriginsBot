@@ -15,6 +15,7 @@ namespace OriginsBot.Extensions
 
         private const int MaxLength = 6000;
         private const int MaxFields = 25;
+        private const int MaxEmbeds = 10;
 
 
         public static List<EmbedProperties> MakeCompliant(this EmbedProperties self)
@@ -84,7 +85,7 @@ namespace OriginsBot.Extensions
 
             embed.Fields = fields;
             embeds.Add(embed);
-            return embeds;
+            return embeds[..MaxEmbeds];
         }
     }
 }
