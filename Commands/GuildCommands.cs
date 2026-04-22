@@ -180,7 +180,7 @@ namespace OriginsBot.Commands
             {
                 Attachments = [
                     new(OriginDataService.PackJsonFileName, stream),
-                    new(OriginDataService.PackJsonFileName, langStream),
+                    new(OriginDataService.PackLangFileName, langStream),
                 ],
                 Flags = MessageFlags.Ephemeral,
             }));
