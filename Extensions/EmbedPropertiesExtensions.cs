@@ -18,7 +18,7 @@ namespace OriginsBot.Extensions
         private const int MaxEmbeds = 10;
 
 
-        public static List<EmbedProperties> MakeCompliant(this EmbedProperties self)
+        public static IEnumerable<EmbedProperties> MakeCompliant(this EmbedProperties self)
         {
             if (self.Title?.Length > MaxTitleLength)
                 self.Title = self.Title[..MaxTitleLength];
@@ -85,7 +85,7 @@ namespace OriginsBot.Extensions
 
             embed.Fields = fields;
             embeds.Add(embed);
-            return embeds[..MaxEmbeds];
+            return embeds.Take(MaxEmbeds);
         }
     }
 }
