@@ -866,7 +866,9 @@ namespace OriginsBot.Services
                 if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(val))
                     continue;
 
-                lang[key] = val;
+                lang[key] = val
+                    .Replace("\\\\", "\\")
+                    .Replace("\\n", "\n");
             }
 
             return new(lang);
