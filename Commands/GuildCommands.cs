@@ -926,6 +926,30 @@ namespace OriginsBot.Commands
                     }));
                     return;
                 }
+
+                if (userPermissions == UserPermissions.Creator)
+                {
+                    if (pack == null)
+                    {
+                        await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
+                        {
+                            Content = "You don't have permission to update this registered origin pack.",
+                            Flags = MessageFlags.Ephemeral,
+                        }));
+                        return;
+                    }
+
+                    ulong[] creatorIds = [.. pack.OrderedCreatorIds];
+                    if (creatorIds[0] != Context.User.Id && !creatorIds.SequenceEqual(jsonPack.CreatorIds))
+                    {
+                        await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
+                        {
+                            Content = "You don't have permission to update the creator ids of this registered origin pack.",
+                            Flags = MessageFlags.Ephemeral,
+                        }));
+                        return;
+                    }
+                }
             }
 
             string? fullLang = null;
