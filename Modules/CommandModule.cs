@@ -31,9 +31,9 @@ namespace OriginsBot.Modules
             _client = client;
 
             _globalCommandService = new();
+            _globalCommandService.AddModule<GlobalCommands>();
 
             _guildCommandService = new();
-            _guildCommandService.AddModule<GlobalCommands>();
             _guildCommandService.AddModule<GuildCommands>();
 
             _buttonInteractionService = new();
