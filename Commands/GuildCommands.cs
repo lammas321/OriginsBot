@@ -663,7 +663,7 @@ namespace OriginsBot.Commands
 
         [SlashCommand("new_pack", "Origin Creators Only: Register a new origin pack.")]
         public async Task NewPack(
-            [SlashCommandParameter(Name = "pack_id")] string packIdString,
+            [SlashCommandParameter(Name = "pack_id_string")] string packIdString,
             [SlashCommandParameter(Name = "pack_json")] Attachment? packJsonAttachment = null,
             [SlashCommandParameter(Name = "lang")] Attachment? langAttachment = null)
         {
@@ -774,7 +774,7 @@ namespace OriginsBot.Commands
         [SlashCommand("rename_pack", "Origin Creators Only: Change a registered origin pack's id.")]
         public async Task RenamePack(
             [SlashCommandParameter(Name = "old_pack", AutocompleteProviderType = typeof(AccessiblePackProvider))] string oldPackString,
-            [SlashCommandParameter(Name = "new_pack_id")] string newPackIdString)
+            [SlashCommandParameter(Name = "new_pack_id_string")] string newPackIdString)
         {
             UserPermissions userPermissions = PermissionService.GetUserPermissions(Context);
             if (userPermissions < UserPermissions.Creator)
