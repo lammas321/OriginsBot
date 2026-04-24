@@ -1015,7 +1015,7 @@ namespace OriginsBot.Commands
 
             if (
                 (!OriginDataService.Data.PackIds.TryGetValue(packId, out PackData? pack) && userPermissions < UserPermissions.Admin) ||
-                (pack != null && userPermissions < UserPermissions.Admin && !pack.CreatorIds.Contains(Context.User.Id)))
+                (pack != null && userPermissions < UserPermissions.Admin && (pack.OrderedCreatorIds.Count == 0 || pack.OrderedCreatorIds[0] != Context.User.Id)))
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
