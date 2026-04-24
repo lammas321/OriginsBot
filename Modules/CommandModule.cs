@@ -152,9 +152,9 @@ namespace OriginsBot.Modules
                 string args = string.Join(',', interaction.Data.Options.Select(opt => opt.Value ?? "null"));
 
                 if (string.IsNullOrEmpty(args))
-                    Console.WriteLine($"{DateTime.Now:hh:mm:ss tt}  '{userName}' used '{commandName}' in '{channelName}'.");
+                    Console.WriteLine($"{DateTime.Now,-11:h:mm:ss tt} '{userName}' used '{commandName}' in '{channelName}'.");
                 else
-                    Console.WriteLine($"{DateTime.Now:h:mm:ss tt}  '{userName}' used '{commandName}' in '{channelName}' with args: {args}");
+                    Console.WriteLine($"{DateTime.Now,-11:h:mm:ss tt} '{userName}' used '{commandName}' in '{channelName}' with args: {args}");
             }
         }
     }
