@@ -894,7 +894,7 @@ namespace OriginsBot.Commands
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
-                    Content = "You don't have permission to rename this registered origin pack.",
+                    Content = "You don't have permission to update this registered origin pack.",
                     Flags = MessageFlags.Ephemeral,
                 }));
                 return;
@@ -995,7 +995,7 @@ namespace OriginsBot.Commands
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
-                    Content = "You don't have permission to rename this registered origin pack.",
+                    Content = "You don't have permission to remove this registered origin pack.",
                     Flags = MessageFlags.Ephemeral,
                 }));
                 return;
@@ -1062,7 +1062,7 @@ namespace OriginsBot.Commands
             {
                 await Context.Interaction.SendResponseAsync(InteractionCallback.Message(new()
                 {
-                    Content = "You don't have permission to rename this registered origin pack.",
+                    Content = "You don't have permission to update this registered origin pack's icons.",
                     Flags = MessageFlags.Ephemeral,
                 }));
                 return;
