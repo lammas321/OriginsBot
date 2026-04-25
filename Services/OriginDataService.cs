@@ -491,6 +491,8 @@ namespace OriginsBot.Services
         {
             packException = null;
 
+            DateTime time = BackupPack(packId);
+
             string packDirectory = Path.Combine(PacksDirectory, packId.Value);
             Directory.CreateDirectory(Path.Combine(packDirectory, PackIconsDirectoryName));
 
@@ -513,8 +515,7 @@ namespace OriginsBot.Services
 
             if (Data.InvalidPackIds.TryGetValue(packId, out packException))
             {
-                if (Directory.Exists(packDirectory))
-                    Directory.Delete(packDirectory, recursive: true);
+                RestorePack(packId, time);
 
                 if (!TryReload(out _))
                     return false;
