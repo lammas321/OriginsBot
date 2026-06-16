@@ -64,7 +64,7 @@ The Owner will make a reasonable effort where possible to notify the members in 
 - when the Owner's hardware or the Application is compromised,
 - and if the Application is terminated.
 
-These notices will be made in the `#other-announcements` channel of the Origins BE Discord Server, mentioning the `@Extra Announcements` role obtainable from the `#roles` channel.
+These notices will be made in the `#other-announcements` channel of the Origins BE Discord Server, mentioning the `@Bot Announcements` role obtainable from the `#roles` channel.
 
 ## Origins BE Discord Server Access
 You are not required to be within the Origins BE Discord Server or obtain the mention role. However, you acknowledge that you will not be notified of changes to the Application, and your use of the Application is at your own risk. The Owner is not liable for any damages arising from your unwillingness to be notified of changes to the Application.
